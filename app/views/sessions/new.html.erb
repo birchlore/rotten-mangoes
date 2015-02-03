@@ -1,0 +1,15 @@
+<h1>Log In</h1>
+
+<!-- how does this automatically re-direct sessions_path to create method? -->
+
+<%= form_tag sessions_path do %>
+  <div>
+    <%= label_tag "email" %><br/>
+    <%= text_field_tag "email" %>
+  </div>
+  <div>
+    <%= label_tag :password %><br/>
+    <%= password_field_tag :password %>
+  </div>
+  <div><%= submit_tag "Log In" %></div>
+<% end %>
