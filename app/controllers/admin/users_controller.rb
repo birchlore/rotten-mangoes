@@ -6,6 +6,7 @@
 class Admin::UsersController < ApplicationController
   def index
     @admin = User.find(session[:user_id])
+    @users = User.all
   end
 
   def show
