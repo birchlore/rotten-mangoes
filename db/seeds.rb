@@ -14,7 +14,7 @@ def create_random_user
 end
 
 def create_new_movie(user)
-  new_movie = user.movies.new({ title: Faker::App.name, director: Faker::Name.name, runtime_in_minutes: random_runtime, description: Faker::Lorem.paragraph, release_date: Faker::Date.forward(365), image: "http://placehold.it/350x150"})
+  new_movie = user.movies.new({ title: Faker::App.name, director: Faker::Name.name, runtime_in_minutes: random_runtime, description: Faker::Lorem.paragraph, release_date: Faker::Date.forward(365), remote_image_url: "http://placehold.it/300x450"})
   new_movie.save
   raise "random movie not valid" if !new_movie.valid?
   @all_movies << new_movie
