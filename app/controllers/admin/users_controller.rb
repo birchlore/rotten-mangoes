@@ -6,7 +6,7 @@
 class Admin::UsersController < ApplicationController
   def index
     @admin = User.find(session[:user_id])
-    @users = User.all
+    @users = User.all.page(params[:page]).per(10)
   end
 
   def show

@@ -3,6 +3,8 @@
 
 <div class="container">
 
+
+
   <% @users.each do |user| %>
 
     <h3><%= user.full_name %> | <%= user.email %>
@@ -16,6 +18,8 @@
     -------------------------
 
   <% end %>
+
+  <%= paginate @users %>
 
 
 </div> <!-- End container>
