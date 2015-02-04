@@ -1,17 +1,20 @@
 class User < ActiveRecord::Base
   has_secure_password
+  validates_presence_of :password, :on => [:create]
+  validates_presence_of :password_confirmation, :on => [:create]
   has_many :reviews
-  after_create :set_admin_to_false
+  before_create :set_admin
 
 
   def full_name
     "#{firstname} #{lastname}"
   end
 
-  private
-
-  def set_admin_to_false
-    admin = false unless admin 
+  def set_admin
   end
+
   
 end
+
+
+
