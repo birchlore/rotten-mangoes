@@ -1,2 +1,21 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h1>Details for <%= @user.full_name %></h1>
+
+<div>
+  <ul>
+  <li><%= @user.email %></li>
+  <li>Number of Movie Submissions: <%= @user.movies.count %></li>
+  <li>Number of Reviews: <%= @user.reviews.count %></li>
+  <li>Average Review: <%= @user.reviews.average(:rating_out_of_ten) %></li>
+  </ul>
+
+</div>
+
+<div>
+  <% if @user.reviews.any? %>
+    <h4>Reviews:</h4>
+      <% @user.reviews.each do |review| %>
+      <p><em><%= review.movie.title %></em></p>
+      <p><%= review.rating_out_of_ten %>/10. <%= review.text %></p>
+      <% end %>
+  <% end %>
+</div>

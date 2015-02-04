@@ -11,15 +11,8 @@
     <% else %>
      | Regular User
     <% end %>
+     | <%= link_to "see user details", admin_user_path(user) %>
     </h3>
-    
-    <% if user.reviews.any? %>
-      <h4>Reviews:</h4>
-        <% user.reviews.each do |review| %>
-        <p><em><%= review.movie.title %></em></p>
-        <p><%= review.rating_out_of_ten %>/10. <%= review.text %></p>
-        <% end %>
-    <% end %>
     -------------------------
 
   <% end %>
