@@ -16,8 +16,12 @@ class Movie < ActiveRecord::Base
 
   class << self 
 
-    def search_title(title)
+    def filter_title(title)
       where("movies.title LIKE ? COLLATE NOCASE", "%#{title}%" )
+    end
+
+    def filter_director(director)
+      where("movies.director LIKE ? COLLATE NOCASE", "%#{director}%" )
     end
 
 
