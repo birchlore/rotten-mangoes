@@ -33,8 +33,16 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    flash.now[:alert] = "Successfully Deleted #{@user.full_name}"
+    @user.destroy
+    redirect_to admin_users_path
+  end
+
+
 
   protected
 

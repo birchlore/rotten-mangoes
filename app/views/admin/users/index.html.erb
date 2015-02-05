@@ -1,3 +1,7 @@
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+
 <h1>Welcome <%= @admin.firstname.capitalize %></h1>
 <%= link_to "create new user", new_admin_user_path %>
 <p>Here are a list of current users</p>
