@@ -13,9 +13,18 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
+   def new
+    @user = User.new
   end
 
   def edit
+    @user = User.find(params[:id])
   end
+
+  def create
+    
+  end
+
+
 end
+
