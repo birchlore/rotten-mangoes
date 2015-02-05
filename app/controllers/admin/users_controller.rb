@@ -19,12 +19,28 @@ class Admin::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @user.save
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(post_params)
+      redirect_to admin_user_path(@user)
+    else
+      render :edit
+    end
   end
 
   def create
     
   end
 
+  protected
+
+  def post_params
+    params.require(:user).permit(:email, :firstname, :lastname, :admin)
+  end
+
 
 end
-

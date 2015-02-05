@@ -23,16 +23,8 @@
     <%= f.text_field "lastname" %>
   </div>
   <div>
-    <%= f.label "password" %><br>
-    <%= f.password_field "password" %>
-  </div>
-  <div>
-    <%= f.label "password_confirmation" %><br>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-  <div>
     <%= f.check_box :admin %>
-    <%= f.label "Admin Privileges" %><br>
+    <%= f.label "admin", "Admin Privileges" %><br>
   </div>
   <div><%= f.submit "Submit" %></div>
 <% end %>
