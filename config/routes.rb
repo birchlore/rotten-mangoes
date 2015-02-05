@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
    namespace :admin do
     resources :users
+    get '/users/become/:id', to: 'users#become'
   end
 
 end

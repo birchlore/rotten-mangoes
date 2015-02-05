@@ -20,4 +20,10 @@ class SessionsController < ApplicationController
     redirect_to movies_path, notice: "Adios!"
   end
 
+  def current_user
+    session[:user_id]
+  end
+
+  
+
 end
