@@ -79,3 +79,9 @@ class Admin::UsersController < ApplicationController
 
 
 end
+
+
+ # @books = Book.all.order(:title)   # an empty array of AR objects
+ #    @books = @books.by_title(title) if title.present?
+ #    @books = @books.on_sale         if on_sale
+ #    @books = @books.in_price_range(0, max_price) if max_price.present? # should probably make this a scope / class method as well

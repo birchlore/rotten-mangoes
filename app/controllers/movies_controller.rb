@@ -1,7 +1,9 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.all.order(:title)
+    @movies = @movies.search_title(params[:title]) if params[:title].present?
   end
+
 
   def show
     @movie = Movie.find(params[:id])

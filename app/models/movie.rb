@@ -13,6 +13,17 @@ class Movie < ActiveRecord::Base
     reviews.average(:rating_out_of_ten) if reviews
   end
 
+
+  class << self 
+
+    def search_title(title)
+      where("movies.title LIKE ? COLLATE NOCASE", "%#{title}%" )
+    end
+
+
+
+  end
+
   protected
 
   def release_date_is_in_the_future
@@ -22,3 +33,29 @@ class Movie < ActiveRecord::Base
   end
 
 end
+
+
+
+#   scope :on_sale, -> { where(sale: true) }
+#   # Is the same as
+#   # def self.on_sale
+#   #   where(sale: true)
+#   # end
+
+#   scope :starts_with_a, -> { where("books.title ILIKE ?", "a%") }
+#   # The ActiveRecord guide recommends using class methods (see below)
+#   # instead of scopes when you need to pass in a parameter
+#   # http://guides.rubyonrails.org/active_record_querying.html#scopes
+
+#   # scope :by_title, (title) -> { 
+#   #   where("books.title ILIKE ?", "%#{title}%")
+#   # }
+#   def self.by_title(title)
+#     where("books.title ILIKE ?", "%#{title}%")
+#   end
+
+#   def self.in_price_range(min_price, max_price)
+#     where("price > ?", min_price).where("price < ?", max_price)
+#   end
+
+# end
