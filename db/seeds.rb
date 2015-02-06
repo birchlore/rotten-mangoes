@@ -1,7 +1,6 @@
-require 'pry'
-
 @all_movies = []
 
+@movie_posters = ["http://imgc.allpostersimages.com/images/P-473-488-90/17/1723/KK53D00Z/posters/the-terminator.jpg", "https://www.movieposter.com/posters/archive/main/68/MPW-34112", "http://cdn.screenrant.com/wp-content/uploads/Jurassic-Park-Teaser-Poster.jpg", "http://img3.wikia.nocookie.net/__cb20120115134844/jurassicpark/images/d/d3/Jurassic-park-poster.jpg", "http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2011/12/grey-movie-poster.jpg", "http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2012/10/movie+posters+16.jpg", "http://ifanboy.com/wp-content/uploads/2012/02/newavengersposter.jpg", "http://images.moviepostershop.com/winters-bone-movie-poster-2010-1020549245.jpg", "http://main-designyoutrust.netdna-ssl.com/wp-content/uploads/2012/11/titanic-movie-poster-1997-1020339699.jpg", "http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2011/12/big-miracle-movie-poster.jpg", "http://upload.wikimedia.org/wikipedia/en/3/3b/Movie_poster_i_robot.jpg", "http://www.topdesignmag.com/wp-content/uploads/2011/04/lord-war-creative-movie-posters.jpg"]
 
 def random_runtime
   rand(100) + 62
@@ -14,7 +13,7 @@ def create_random_user
 end
 
 def create_new_movie(user)
-  new_movie = user.movies.new({ title: Faker::App.name, director: Faker::Name.name, runtime_in_minutes: random_runtime, description: Faker::Lorem.paragraph, release_date: Faker::Date.forward(365), remote_image_url: "http://placehold.it/300x450"})
+  new_movie = user.movies.new({ title: Faker::App.name, director: Faker::Name.name, runtime_in_minutes: random_runtime, description: Faker::Lorem.paragraph, release_date: Faker::Date.forward(365), remote_image_url: @movie_posters.sample})
   new_movie.save
   raise "random movie not valid" if !new_movie.valid?
   @all_movies << new_movie
