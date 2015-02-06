@@ -24,6 +24,17 @@ class Movie < ActiveRecord::Base
       where("movies.director LIKE ? COLLATE NOCASE", "%#{director}%" )
     end
 
+    def filter_length(option)
+      case option
+      when '2' 
+        where(["movies.runtime_in_minutes < ?", 90])
+      when '3'
+        where(["movies.runtime_in_minutes > ? AND movies.runtime_in_minutes < ?", 90, 120])
+      when '4'
+        where(["movies.runtime_in_minutes > ?", 120])
+      end
+    end
+
 
 
   end
@@ -37,29 +48,3 @@ class Movie < ActiveRecord::Base
   end
 
 end
-
-
-
-#   scope :on_sale, -> { where(sale: true) }
-#   # Is the same as
-#   # def self.on_sale
-#   #   where(sale: true)
-#   # end
-
-#   scope :starts_with_a, -> { where("books.title ILIKE ?", "a%") }
-#   # The ActiveRecord guide recommends using class methods (see below)
-#   # instead of scopes when you need to pass in a parameter
-#   # http://guides.rubyonrails.org/active_record_querying.html#scopes
-
-#   # scope :by_title, (title) -> { 
-#   #   where("books.title ILIKE ?", "%#{title}%")
-#   # }
-#   def self.by_title(title)
-#     where("books.title ILIKE ?", "%#{title}%")
-#   end
-
-#   def self.in_price_range(min_price, max_price)
-#     where("price > ?", min_price).where("price < ?", max_price)
-#   end
-
-# end

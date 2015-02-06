@@ -5,7 +5,7 @@
     <%= render 'layouts/search_form' %>
  </div>
 
-<% if @movies.count > 0 %>
+<% if @movies && @movies.count > 0 %>
   <% @movies.each do |movie| %>
     <%= link_to image_tag(movie.image_url(:thumb)), movie_path(movie) %>
     <h2><%= link_to movie.title, movie_path(movie) %></h2>
