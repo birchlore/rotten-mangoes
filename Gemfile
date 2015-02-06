@@ -33,6 +33,8 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'faker'
 gem 'pry'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
