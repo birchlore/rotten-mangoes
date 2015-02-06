@@ -16,26 +16,9 @@ class Movie < ActiveRecord::Base
 
   class << self 
 
-    def filter_title(title)
-      where("movies.title LIKE ? COLLATE NOCASE", "%#{title}%" )
+    def search(search_term)
+      where("title LIKE ? OR director LIKE ?", "%#{search_term}%", "%#{search_term}%")
     end
-
-    def filter_director(director)
-      where("movies.director LIKE ? COLLATE NOCASE", "%#{director}%" )
-    end
-
-    def filter_length(option)
-      case option
-      when '2' 
-        where(["movies.runtime_in_minutes < ?", 90])
-      when '3'
-        where(["movies.runtime_in_minutes > ? AND movies.runtime_in_minutes < ?", 90, 120])
-      when '4'
-        where(["movies.runtime_in_minutes > ?", 120])
-      end
-    end
-
-
 
   end
 
