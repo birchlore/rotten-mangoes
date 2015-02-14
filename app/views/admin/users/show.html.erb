@@ -1,8 +1,10 @@
 <h1>Details for <%= @user.full_name %></h1>
-<p><em><%= link_to "edit user", edit_admin_user_path %></em></p>
-<p><em><%= link_to "delete user", admin_user_path(@user), :method => :delete, :"data-confirm" => "You sure?" %></em></p>
-<p><em><%= link_to "become this user", "/admin/users/become/#{@user.id}/" %></em></p>
-<div>
+<div class="admin-user-options">
+  <p><em><%= link_to "edit user", edit_admin_user_path %></em></p>
+  <p><em><%= link_to "delete user", admin_user_path(@user), :method => :delete, :"data-confirm" => "You sure?" %></em></p>
+  <p><em><%= link_to "become this user", "/admin/users/become/#{@user.id}/" %></em></p>
+</div>
+<div class="spacer">
   <ul>
   <li><%= @user.email %></li>
   <li>Number of Movie Submissions: <%= @user.movies.count %></li>
@@ -14,10 +16,11 @@
 
 <div>
   <% if @user.reviews.any? %>
-    <h4>Reviews:</h4>
+    <h4><%= @user.full_name %>'s Reviews:</h4>
       <% @user.reviews.each do |review| %>
       <p><em><%= link_to review.movie.title, movie_path(review.movie) %></em></p>
       <p><%= review.rating_out_of_ten %>/10. <%= review.text %></p>
+      <div class="separator spacer"></div>
       <% end %>
   <% end %>
 </div>

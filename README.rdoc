@@ -1,28 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rotten Mangoes is a CRUD app to help users find, submit and rate movies. Administrators have additional capabilities: they can add or edit a user's account as well as 'ghost' or mimic a user's session.
 
-Things you may want to cover:
+* Run bundle install
 
-* Ruby version
+* Rake db:reset
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* a sample admin is created as admin@gmail.com and pw: 12345
+* a sample non-admin is created as notadmin@gmail.com and pw: 12345

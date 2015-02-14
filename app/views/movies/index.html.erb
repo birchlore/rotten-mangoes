@@ -1,14 +1,17 @@
-<h1>Rotten Mangoes</h1>
-<%= link_to "Submit a movie!", new_movie_path %>
-<hr>
- <div>
-    <%= render 'layouts/search_form' %>
- </div>
 
-<% if @movies && @movies.count > 0 %>
-  <% @movies.each do |movie| %>
-    <%= render partial: "movies/movie", locals: {movie: movie} %>
+
+  <div class="text-center spacer submit">
+    <%= link_to "Submit a new movie >>", new_movie_path %> 
+  </div>
+
+  <% if @movies && @movies.count > 0 %>
+  
+  <div class="thumbnails">
+    <% @movies.each do |movie| %>
+      <%= render partial: "movies/movie", locals: {movie: movie} %>
+    <% end %>
+  </div>
+
+  <% else %>
+    <p>No results</p>
   <% end %>
-<% else %>
-  <p>No results</p>
-<% end %>

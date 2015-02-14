@@ -3,8 +3,9 @@
 <% end %>
 
 <h1>Welcome <%= @admin.firstname.capitalize %></h1>
-<%= link_to "create new user", new_admin_user_path %>
-<p>Here are a list of current users</p>
+<%= link_to "create new user >", new_admin_user_path %>
+<div class="spacer">
+</div>
 
 <div class="container">
 
@@ -20,8 +21,8 @@
     <% end %>
      | <%= link_to "see user details", admin_user_path(user) %>
     </h3>
-    -------------------------
-
+    <div class="separator">
+    </div>
   <% end %>
 
   <%= paginate @users %>

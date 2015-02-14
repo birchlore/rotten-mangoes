@@ -3,13 +3,15 @@
 <!-- how does this automatically re-direct sessions_path to create method? -->
 
 <%= form_tag session_path do %>
-  <div>
+  <div class="form-group">
     <%= label_tag "email" %><br/>
-    <%= text_field_tag "email" %>
+    <%= text_field_tag "email", params[:email], class: "form-control" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= label_tag :password %><br/>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password, params[:password], class: "form-control" %>
   </div>
-  <div><%= submit_tag "Log In" %></div>
+  <div class="form-group">
+    <%= submit_tag "Log In", :class => "btn btn-primary" %>
+  </div>
 <% end %>
