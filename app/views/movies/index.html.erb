@@ -7,11 +7,11 @@
   <% if @movies && @movies.count > 0 %>
   
   <div class="thumbnails">
-    <% @movies.each do |movie| %>
-      <%= render partial: "movies/movie", locals: {movie: movie} %>
-    <% end %>
+    <%= render @movies %>
+    
   </div>
 
   <% else %>
     <p>No results</p>
   <% end %>
+
