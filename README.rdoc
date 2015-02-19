@@ -3,3 +3,6 @@
 Rotten Mangoes is a CRUD app to help users find, submit and rate movies. Administrators have additional capabilities: they can add or edit a user's account as well as 'ghost' or mimic a user's session.
 
 Live Demo: rotten-mangoes.herokuapp.com
+
+Login as admin: admin@gmail.com pw: 12345
+Login as non admin: notadmin@gmail.com pw: 12345

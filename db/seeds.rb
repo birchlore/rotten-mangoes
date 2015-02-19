@@ -46,3 +46,4 @@ end
 end
 
 admin_user = User.create({ email: 'admin@gmail.com', password: "12345", password_confirmation: "12345", firstname: "jackson", lastname: "cunningham", admin: true})
+non_admin_user = User.create({ email: 'notadmin@gmail.com', password: "12345", password_confirmation: "12345", firstname: "jackson", lastname: "cunningham", admin: true})
