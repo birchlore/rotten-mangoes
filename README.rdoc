@@ -2,11 +2,4 @@
 
 Rotten Mangoes is a CRUD app to help users find, submit and rate movies. Administrators have additional capabilities: they can add or edit a user's account as well as 'ghost' or mimic a user's session.
 
-* Run bundle install
-
-* Rake db:reset
-
-* a sample admin is created as admin@gmail.com and pw: 12345
-* a sample non-admin is created as notadmin@gmail.com and pw: 12345
-
-* See a live demo here: 
+Live Demo: rotten-mangoes.herokuapp.com

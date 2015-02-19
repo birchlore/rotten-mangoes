@@ -1,0 +1,33 @@
+<header>
+
+  <% if session[:admin_user_id] %>
+    <div class="ghost" style="border:1px solid black;">
+      <p><b>This is a ghost session.</b> Click <%= link_to 'here', admin_users_path %> to log back in as admin.
+      </p>
+    </div>
+  <% end %>
+
+  <div class="login">
+    <% if current_user %>
+      Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+    <% else %>
+      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+
+    <% if current_user && current_user.admin? %>
+        <%= link_to "Admin Settings", admin_users_path %>
+    <% end %>
+  </div>
+
+  <div class="hero navbar-form">
+    <%= render 'layouts/search_form' %>
+  </div>
+
+  <div class="clearfix spacer">
+  </div>
+
+  <hr>
+
+</header>
+ 
+

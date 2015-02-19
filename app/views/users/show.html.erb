@@ -1,0 +1,19 @@
+<%= link_to "< Back", @back, :class => "row" %>
+
+<div class="row">
+  <h1><%= @user.full_name %></h1>
+  <p><%= @user.full_name %> has submitted <%= @user.movies.count %> movies and
+  <%= @user.reviews.count %> reviews. <%= @user.firstname %>'s average rating for movies is
+  <%= @user.reviews.average(:rating_out_of_ten) %></p>
+</div>
+
+
+<div class="row">
+  <% if @user.reviews.any? %>
+    <h4><%= @user.firstname %>'s Reviews:</h4>
+      <% @user.reviews.each do |review| %>
+      <p><em><%= link_to review.movie.title, movie_path(review.movie) %></em></p>
+      <p><%= review.rating_out_of_ten %>/10. <%= review.text %></p>
+      <% end %>
+  <% end %>
+</div>
